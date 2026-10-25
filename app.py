@@ -21,7 +21,8 @@ load_dotenv(Path(__file__).with_name(".env"), interpolate=False)
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODEL = "deepseek-flash"
 
-DATA_FILE = Path(__file__).resolve().parent / "data" / "messages.json"
+DATA_DIR = Path(os.environ.get("LAB5_DATA_DIR", Path(__file__).resolve().parent / "data"))
+DATA_FILE = DATA_DIR / "messages.json"
 
 
 class StorageError(Exception):
