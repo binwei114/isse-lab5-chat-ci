@@ -233,7 +233,6 @@ def delete_message(message_id):
         for index, record in enumerate(messages):
             if record["id"] == message_id:
                 updated = messages.copy()
-                updated.pop(index)
                 save_messages(updated)
                 messages[:] = updated
                 return jsonify(id=message_id, message="问答已删除。")
